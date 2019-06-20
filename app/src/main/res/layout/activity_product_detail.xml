@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="100">
+
+
+        <ImageView
+            android:id="@+id/thumbnailProductDetail"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="70"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/productdetail"
+            android:scaleType="centerCrop"
+         />
+
+        <TextView
+            android:id="@+id/productNameDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway_semibold"
+            android:text="@string/example"
+            android:textAlignment="center"
+            android:textColor="#606060"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/productCmimiDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway_semibold"
+            android:text="@string/example"
+            android:textAlignment="center"
+            android:textColor="#606060"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/orderBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#51CB58"
+            android:text="@string/porosit"
+            android:textColor="#F8F4F4" />
+
+
+</LinearLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#141E30</color>
+    <color name="colorPrimaryDark">#141E30</color>
+    <color name="colorAccent">#e56129</color>
+    <color name="album_title">#AAAAAA</color>
+
+    <!-- Colors for Gradient-->
+
+    <color name="color1">#141E30</color>
+    <color name="color2">#243B55</color>
+</resources>
