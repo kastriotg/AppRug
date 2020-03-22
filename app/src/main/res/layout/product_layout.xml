@@ -16,17 +16,18 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/thumbnail"
+            android:id="@+id/bookThumbnail"
             android:layout_width="match_parent"
             android:layout_height="@dimen/album_cover_height"
             android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/book_image"
             android:scaleType="fitXY" />
 
         <TextView
             android:id="@+id/productLayoutName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/thumbnail"
+            android:layout_below="@id/bookThumbnail"
             android:layout_alignParentStart="true"
             android:layout_marginStart="-5dp"
             android:layout_marginTop="0dp"
@@ -36,23 +37,6 @@
             android:paddingRight="@dimen/album_title_padding"
             android:textAlignment="center"
             android:textColor="@color/album_title"
-            android:textSize="@dimen/album_title" />
-
-        <TextView
-            android:id="@+id/productLayoutCmimi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/productLayoutName"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp"
-
-            android:background="#243B55"
-            android:paddingLeft="@dimen/album_title_padding"
-            android:paddingTop="@dimen/album_title_padding"
-            android:paddingRight="@dimen/album_title_padding"
-            android:textAlignment="center"
-            android:textColor="#FEFEFE"
             android:textSize="@dimen/album_title" />
 
         <!--<ImageView-->

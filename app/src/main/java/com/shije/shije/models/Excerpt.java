@@ -64,5 +64,4 @@ public class Excerpt implements Parcelable
     public int describeContents() {
         return 0;
     }
-
 }

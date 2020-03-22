@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Shije</string>
+    <string name="app_name">My Book</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -16,4 +16,10 @@
     <string name="productdetail">productDetail</string>
     <string name="example">example</string>
     <string name="porosit">Porosit</string>
+    <string name="my_book">My Book</string>
+    <string name="book_image">Book Image</string>
+    <string name="textview">TextView</string>
+    <string name="textview">TextView</string>
+    <string name="textview">TextView</string>
+    <string name="shtepia_botuese">Shtepia Botuese</string>
 </resources>

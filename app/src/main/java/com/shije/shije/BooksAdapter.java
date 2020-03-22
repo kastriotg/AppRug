@@ -14,17 +14,17 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.shije.shije.models.Product;
+import com.shije.shije.models.Book;
 
 import java.util.List;
 
-public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ProductViewHolder>{
+public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.ProductViewHolder>{
 
     private Context context;
-    private List<Product> productList;
+    private List<Book> productList;
 
     // CONSTRUCTOR
-    public ProductsAdapter(Context context, List<Product> productList) {
+    public BooksAdapter(Context context, List<Book> productList) {
         this.context = context;
         this.productList = productList;
     }
@@ -38,17 +38,17 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
 
     @Override
     public void onBindViewHolder(@NonNull final ProductViewHolder viewHolder, final int position) {
-        Product product = productList.get(position);
+        Book product = productList.get(position);
         viewHolder.productTitle.setText(product.getTitle().getRendered());
         Glide.with(context).load(product.getFimgUrl()).into(viewHolder.productImage);
 
 //        viewHolder.productImage.setText(product.getImage());
-       viewHolder.productPrice.setText(product.getCustomFields().getCmimi().get(0));
+//       viewHolder.productPrice.setText(product.getCustomFields().getCmimi().get(0));
 //        viewHolder.productInventory.setText(product.getInventory());
 //        viewHolder.productDescription.setText(product.getContent().toString());
 
         viewHolder.cardView.setOnClickListener(v -> {
-            Intent mIntent = new Intent(context, ProductDetailActivity.class);
+            Intent mIntent = new Intent(context, BookDetailActivity.class);
             Bundle extras = new Bundle();
             extras.putParcelable("product", product);
             mIntent.putExtras(extras);
@@ -70,8 +70,8 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
             productTitle = itemView.findViewById(R.id.productLayoutName);
-            productImage = itemView.findViewById(R.id.thumbnail);
-            productPrice =itemView.findViewById(R.id.productLayoutCmimi);
+            productImage = itemView.findViewById(R.id.bookThumbnail);
+//            productPrice =itemView.findViewById(R.id.productLayoutCmimi);
 //            productInventory = itemView.findViewById(R.id.productLayoutInventory);
 //            productDescription = itemView.findViewById(R.id.productLayoutDescription);
             cardView = itemView.findViewById(R.id.card_view);

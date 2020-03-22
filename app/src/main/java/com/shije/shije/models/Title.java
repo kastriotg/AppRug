@@ -51,5 +51,4 @@ public class Title implements Parcelable
     public int describeContents() {
         return 0;
     }
-
 }

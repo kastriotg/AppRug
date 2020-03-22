@@ -6,44 +6,41 @@
     android:weightSum="100">
 
 
-        <ImageView
-            android:id="@+id/thumbnailProductDetail"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="70"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/productdetail"
-            android:scaleType="centerCrop"
-         />
-
         <TextView
             android:id="@+id/productNameDetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#FFFFFF"
             android:fontFamily="@font/raleway_semibold"
+            android:padding="8sp"
             android:text="@string/example"
             android:textAlignment="center"
             android:textColor="#606060"
-            android:textSize="20sp" />
+            android:textSize="26sp" />
 
         <TextView
-            android:id="@+id/productCmimiDetail"
+            android:id="@+id/dituria"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/raleway_semibold"
-            android:text="@string/example"
-            android:textAlignment="center"
-            android:textColor="#606060"
-            android:textSize="20sp" />
+            android:padding="4dp" />
 
-        <Button
-            android:id="@+id/orderBtn"
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/shBpb"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="#51CB58"
-            android:text="@string/porosit"
-            android:textColor="#F8F4F4" />
+            android:text="@string/shtepia_botuese" />
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="@string/textview" />
+        </android.support.v4.widget.NestedScrollView>
 
 
 </LinearLayout>

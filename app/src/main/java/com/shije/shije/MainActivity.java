@@ -5,7 +5,6 @@ import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
@@ -22,34 +21,28 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.shije.shije.models.Product;
+import com.shije.shije.models.Book;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
 
 import okhttp3.OkHttpClient;
-import okhttp3.ResponseBody;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private RecyclerView productList;
-    private ProductsAdapter recyclerAdapter;
-    private List<Product> products;
+    private BooksAdapter recyclerAdapter;
+    private List<Book> books;
 
 
     @Override
@@ -59,8 +52,8 @@ public class MainActivity extends AppCompatActivity
 
 
 
-        products = new ArrayList<>();
-        recyclerAdapter = new ProductsAdapter(this, products);
+        books = new ArrayList<>();
+        recyclerAdapter = new BooksAdapter(this, books);
         productList = findViewById(R.id.productList);
         productList.setAdapter(recyclerAdapter);
 
@@ -82,23 +75,23 @@ public class MainActivity extends AppCompatActivity
 
         Retrofit retrofit = new Retrofit.Builder()
                 .client(client)
-                .baseUrl("https://www.shijerugove.info/wp/wp-json/wp/v2/")
+                .baseUrl("http://blejtani.site/wp-json/wp/v2/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        ShijeService shijeService = retrofit.create(ShijeService.class);
+        BooksService booksService = retrofit.create(BooksService.class);
 
-        Call<List<Product>> call = shijeService.getProducts();
+        Call<List<Book>> call = booksService.getBooks();
 
-        call.enqueue(new Callback<List<Product>>() {
+        call.enqueue(new Callback<List<Book>>() {
             @Override
-            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+            public void onResponse(Call<List<Book>> call, Response<List<Book>> response) {
 
                 if (response.isSuccessful()) {
                     // tasks available
-                    for (Product product : response.body()) {
+                    for (Book book : response.body()) {
 //                        Log.e("product", product.toString());
-                        products.add(product);
+                        books.add(book);
                     }
 
                     recyclerAdapter.notifyDataSetChanged();
@@ -106,7 +99,7 @@ public class MainActivity extends AppCompatActivity
             }
 
             @Override
-            public void onFailure(Call<List<Product>> call, Throwable t) {
+            public void onFailure(Call<List<Book>> call, Throwable t) {
 //                Log.e("response", call.toString());
                 // something went completely south (like no internet connection)
                 Log.d("Error", t.getMessage());
