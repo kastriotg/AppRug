@@ -19,5 +19,6 @@
     <string name="my_book">My Book</string>
     <string name="book_image">Book Image</string>
     <string name="shtepia_botuese">Shtepia Botuese</string>
+    <string name="textview">TextView</string>
 
 </resources>

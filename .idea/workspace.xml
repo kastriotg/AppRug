@@ -10,6 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2903fa8f-ac18-491d-a9ef-a2950096ce27" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_jakewharton_butterknife_8_8_1_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_jakewharton_butterknife_annotations_8_8_1_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -21,26 +23,15 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/shije/shije/ExampleInstrumentedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/shije/bookshop/ExampleInstrumentedTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/shije/shije/ActivitySplash.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/shije/bookshop/ActivitySplash.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/shije/shije/BookDetailActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/shije/bookshop/BookDetailActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/shije/shije/BooksAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/shije/bookshop/BooksAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/shije/shije/BooksService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/shije/bookshop/BooksService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/shije/shije/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/shije/bookshop/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/shije/shije/models/Autorus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/shije/shije/models/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/shije/bookshop/models/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/shije/shije/models/Content.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/shije/shije/models/CustomFields.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/shije/shije/models/DetajetELibrit.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/shije/shije/models/Excerpt.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/shije/shije/models/Price.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/shije/shije/models/ShtepiaBotuese.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/shije/shije/models/Title.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/shije/bookshop/BookDetailActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/shije/bookshop/BookDetailActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/shije/bookshop/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/shije/bookshop/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/shije/bookshop/models/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/shije/bookshop/models/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/shije/bookshop/models/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/shije/bookshop/models/Image.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_product_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_product_detail.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/shije/shije/ExampleUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/shije/bookshop/ExampleUnitTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -65,6 +56,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="resourceFile" />
+        <option value="layoutResourceFile" />
         <option value="Class" />
       </list>
     </option>
@@ -77,6 +70,9 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
   <component name="RunDashboard">

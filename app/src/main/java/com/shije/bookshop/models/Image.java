@@ -33,114 +33,85 @@ public class Image implements Parcelable
     @SerializedName("alt")
     @Expose
     private String alt;
-    public final static Parcelable.Creator<Image> CREATOR = new Creator<Image>() {
 
+    protected Image(Parcel in) {
+        if (in.readByte() == 0) {
+            id = null;
+        } else {
+            id = in.readInt();
+        }
+        dateCreated = in.readString();
+        dateCreatedGmt = in.readString();
+        dateModified = in.readString();
+        dateModifiedGmt = in.readString();
+        src = in.readString();
+        name = in.readString();
+        alt = in.readString();
+    }
 
-        @SuppressWarnings({
-                "unchecked"
-        })
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        if (id == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(id);
+        }
+        dest.writeString(dateCreated);
+        dest.writeString(dateCreatedGmt);
+        dest.writeString(dateModified);
+        dest.writeString(dateModifiedGmt);
+        dest.writeString(src);
+        dest.writeString(name);
+        dest.writeString(alt);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Image> CREATOR = new Creator<Image>() {
+        @Override
         public Image createFromParcel(Parcel in) {
             return new Image(in);
         }
 
+        @Override
         public Image[] newArray(int size) {
-            return (new Image[size]);
+            return new Image[size];
         }
-
-    }
-            ;
-
-    protected Image(Parcel in) {
-        this.id = ((Integer) in.readValue((Integer.class.getClassLoader())));
-        this.dateCreated = ((String) in.readValue((String.class.getClassLoader())));
-        this.dateCreatedGmt = ((String) in.readValue((String.class.getClassLoader())));
-        this.dateModified = ((String) in.readValue((String.class.getClassLoader())));
-        this.dateModifiedGmt = ((String) in.readValue((String.class.getClassLoader())));
-        this.src = ((String) in.readValue((String.class.getClassLoader())));
-        this.name = ((String) in.readValue((String.class.getClassLoader())));
-        this.alt = ((String) in.readValue((String.class.getClassLoader())));
-    }
-
-    public Image() {
-    }
+    };
 
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getDateCreated() {
         return dateCreated;
     }
 
-    public void setDateCreated(String dateCreated) {
-        this.dateCreated = dateCreated;
-    }
-
     public String getDateCreatedGmt() {
         return dateCreatedGmt;
-    }
-
-    public void setDateCreatedGmt(String dateCreatedGmt) {
-        this.dateCreatedGmt = dateCreatedGmt;
     }
 
     public String getDateModified() {
         return dateModified;
     }
 
-    public void setDateModified(String dateModified) {
-        this.dateModified = dateModified;
-    }
-
     public String getDateModifiedGmt() {
         return dateModifiedGmt;
-    }
-
-    public void setDateModifiedGmt(String dateModifiedGmt) {
-        this.dateModifiedGmt = dateModifiedGmt;
     }
 
     public String getSrc() {
         return src;
     }
 
-    public void setSrc(String src) {
-        this.src = src;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getAlt() {
         return alt;
     }
-
-    public void setAlt(String alt) {
-        this.alt = alt;
-    }
-
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeValue(id);
-        dest.writeValue(dateCreated);
-        dest.writeValue(dateCreatedGmt);
-        dest.writeValue(dateModified);
-        dest.writeValue(dateModifiedGmt);
-        dest.writeValue(src);
-        dest.writeValue(name);
-        dest.writeValue(alt);
-    }
-
-    public int describeContents() {
-        return 0;
-    }
-
 }

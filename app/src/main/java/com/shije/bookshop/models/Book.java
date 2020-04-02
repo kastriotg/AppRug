@@ -160,82 +160,191 @@ public class Book implements Parcelable {
     @SerializedName("grouped_products")
     @Expose
     private List<Object> groupedProducts = null;
-    @SerializedName("menu_order")
-    @Expose
-    private Integer menuOrder;
-    public final static Parcelable.Creator<Book> CREATOR = new Creator<Book>() {
 
+    protected Book(Parcel in) {
+        if (in.readByte() == 0) {
+            id = null;
+        } else {
+            id = in.readInt();
+        }
+        name = in.readString();
+        byte tmpFeatured = in.readByte();
+        featured = tmpFeatured == 0 ? null : tmpFeatured == 1;
+        catalogVisibility = in.readString();
+        description = in.readString();
+        shortDescription = in.readString();
+        sku = in.readString();
+        price = in.readString();
+        regularPrice = in.readString();
+        salePrice = in.readString();
+        byte tmpOnSale = in.readByte();
+        onSale = tmpOnSale == 0 ? null : tmpOnSale == 1;
+        byte tmpPurchasable = in.readByte();
+        purchasable = tmpPurchasable == 0 ? null : tmpPurchasable == 1;
+        byte tmpVirtual = in.readByte();
+        virtual = tmpVirtual == 0 ? null : tmpVirtual == 1;
+        byte tmpDownloadable = in.readByte();
+        downloadable = tmpDownloadable == 0 ? null : tmpDownloadable == 1;
+        if (in.readByte() == 0) {
+            downloadLimit = null;
+        } else {
+            downloadLimit = in.readInt();
+        }
+        if (in.readByte() == 0) {
+            downloadExpiry = null;
+        } else {
+            downloadExpiry = in.readInt();
+        }
+        externalUrl = in.readString();
+        buttonText = in.readString();
+        taxStatus = in.readString();
+        taxClass = in.readString();
+        if (in.readByte() == 0) {
+            stockQuantity = null;
+        } else {
+            stockQuantity = in.readInt();
+        }
+        stockStatus = in.readString();
+        backorders = in.readString();
+        byte tmpBackordersAllowed = in.readByte();
+        backordersAllowed = tmpBackordersAllowed == 0 ? null : tmpBackordersAllowed == 1;
+        byte tmpBackordered = in.readByte();
+        backordered = tmpBackordered == 0 ? null : tmpBackordered == 1;
+        byte tmpSoldIndividually = in.readByte();
+        soldIndividually = tmpSoldIndividually == 0 ? null : tmpSoldIndividually == 1;
+        weight = in.readString();
+        byte tmpShippingRequired = in.readByte();
+        shippingRequired = tmpShippingRequired == 0 ? null : tmpShippingRequired == 1;
+        byte tmpShippingTaxable = in.readByte();
+        shippingTaxable = tmpShippingTaxable == 0 ? null : tmpShippingTaxable == 1;
+        shippingClass = in.readString();
+        if (in.readByte() == 0) {
+            shippingClassId = null;
+        } else {
+            shippingClassId = in.readInt();
+        }
+        byte tmpReviewsAllowed = in.readByte();
+        reviewsAllowed = tmpReviewsAllowed == 0 ? null : tmpReviewsAllowed == 1;
+        averageRating = in.readString();
+        if (in.readByte() == 0) {
+            ratingCount = null;
+        } else {
+            ratingCount = in.readInt();
+        }
+        if (in.readByte() == 0) {
+            parentId = null;
+        } else {
+            parentId = in.readInt();
+        }
+        purchaseNote = in.readString();
+        categories = in.createTypedArrayList(Category.CREATOR);
+        images = in.createTypedArrayList(Image.CREATOR);
+        if (in.readByte() == 0) {
+            menuOrder = null;
+        } else {
+            menuOrder = in.readInt();
+        }
+    }
 
-        @SuppressWarnings({
-                "unchecked"
-        })
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        if (id == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(id);
+        }
+        dest.writeString(name);
+        dest.writeByte((byte) (featured == null ? 0 : featured ? 1 : 2));
+        dest.writeString(catalogVisibility);
+        dest.writeString(description);
+        dest.writeString(shortDescription);
+        dest.writeString(sku);
+        dest.writeString(price);
+        dest.writeString(regularPrice);
+        dest.writeString(salePrice);
+        dest.writeByte((byte) (onSale == null ? 0 : onSale ? 1 : 2));
+        dest.writeByte((byte) (purchasable == null ? 0 : purchasable ? 1 : 2));
+        dest.writeByte((byte) (virtual == null ? 0 : virtual ? 1 : 2));
+        dest.writeByte((byte) (downloadable == null ? 0 : downloadable ? 1 : 2));
+        if (downloadLimit == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(downloadLimit);
+        }
+        if (downloadExpiry == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(downloadExpiry);
+        }
+        dest.writeString(externalUrl);
+        dest.writeString(buttonText);
+        dest.writeString(taxStatus);
+        dest.writeString(taxClass);
+        if (stockQuantity == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(stockQuantity);
+        }
+        dest.writeString(stockStatus);
+        dest.writeString(backorders);
+        dest.writeByte((byte) (backordersAllowed == null ? 0 : backordersAllowed ? 1 : 2));
+        dest.writeByte((byte) (backordered == null ? 0 : backordered ? 1 : 2));
+        dest.writeByte((byte) (soldIndividually == null ? 0 : soldIndividually ? 1 : 2));
+        dest.writeString(weight);
+        dest.writeByte((byte) (shippingRequired == null ? 0 : shippingRequired ? 1 : 2));
+        dest.writeByte((byte) (shippingTaxable == null ? 0 : shippingTaxable ? 1 : 2));
+        dest.writeString(shippingClass);
+        if (shippingClassId == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(shippingClassId);
+        }
+        dest.writeByte((byte) (reviewsAllowed == null ? 0 : reviewsAllowed ? 1 : 2));
+        dest.writeString(averageRating);
+        if (ratingCount == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(ratingCount);
+        }
+        if (parentId == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(parentId);
+        }
+        dest.writeString(purchaseNote);
+        dest.writeTypedList(categories);
+        dest.writeTypedList(images);
+        if (menuOrder == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(menuOrder);
+        }
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Book> CREATOR = new Creator<Book>() {
+        @Override
         public Book createFromParcel(Parcel in) {
             return new Book(in);
         }
 
+        @Override
         public Book[] newArray(int size) {
-            return (new Book[size]);
+            return new Book[size];
         }
-
-    }
-            ;
-
-    protected Book(Parcel in) {
-        this.id = ((Integer) in.readValue((Integer.class.getClassLoader())));
-        this.name = ((String) in.readValue((String.class.getClassLoader())));
-        this.featured = ((Boolean) in.readValue((Boolean.class.getClassLoader())));
-        this.catalogVisibility = ((String) in.readValue((String.class.getClassLoader())));
-        this.description = ((String) in.readValue((String.class.getClassLoader())));
-        this.shortDescription = ((String) in.readValue((String.class.getClassLoader())));
-        this.sku = ((String) in.readValue((String.class.getClassLoader())));
-        this.price = ((String) in.readValue((String.class.getClassLoader())));
-        this.regularPrice = ((String) in.readValue((String.class.getClassLoader())));
-        this.salePrice = ((String) in.readValue((String.class.getClassLoader())));
-        this.dateOnSaleFrom = ((Object) in.readValue((Object.class.getClassLoader())));
-        this.dateOnSaleFromGmt = ((Object) in.readValue((Object.class.getClassLoader())));
-        this.dateOnSaleTo = ((Object) in.readValue((Object.class.getClassLoader())));
-        this.dateOnSaleToGmt = ((Object) in.readValue((Object.class.getClassLoader())));
-        this.onSale = ((Boolean) in.readValue((Boolean.class.getClassLoader())));
-        this.purchasable = ((Boolean) in.readValue((Boolean.class.getClassLoader())));
-        this.virtual = ((Boolean) in.readValue((Boolean.class.getClassLoader())));
-        this.downloadable = ((Boolean) in.readValue((Boolean.class.getClassLoader())));
-        in.readList(this.downloads, (java.lang.Object.class.getClassLoader()));
-        this.downloadLimit = ((Integer) in.readValue((Integer.class.getClassLoader())));
-        this.downloadExpiry = ((Integer) in.readValue((Integer.class.getClassLoader())));
-        this.externalUrl = ((String) in.readValue((String.class.getClassLoader())));
-        this.buttonText = ((String) in.readValue((String.class.getClassLoader())));
-        this.taxStatus = ((String) in.readValue((String.class.getClassLoader())));
-        this.taxClass = ((String) in.readValue((String.class.getClassLoader())));
-        this.stockQuantity = ((Integer) in.readValue((Integer.class.getClassLoader())));
-        this.stockStatus = ((String) in.readValue((String.class.getClassLoader())));
-        this.backorders = ((String) in.readValue((String.class.getClassLoader())));
-        this.backordersAllowed = ((Boolean) in.readValue((Boolean.class.getClassLoader())));
-        this.backordered = ((Boolean) in.readValue((Boolean.class.getClassLoader())));
-        this.soldIndividually = ((Boolean) in.readValue((Boolean.class.getClassLoader())));
-        this.weight = ((String) in.readValue((String.class.getClassLoader())));
-        this.shippingRequired = ((Boolean) in.readValue((Boolean.class.getClassLoader())));
-        this.shippingTaxable = ((Boolean) in.readValue((Boolean.class.getClassLoader())));
-        this.shippingClass = ((String) in.readValue((String.class.getClassLoader())));
-        this.shippingClassId = ((Integer) in.readValue((Integer.class.getClassLoader())));
-        this.reviewsAllowed = ((Boolean) in.readValue((Boolean.class.getClassLoader())));
-        this.averageRating = ((String) in.readValue((String.class.getClassLoader())));
-        this.ratingCount = ((Integer) in.readValue((Integer.class.getClassLoader())));
-//        in.readList(this.relatedIds, (java.lang.Integer.class.getClassLoader()));
-//        in.readList(this.upsellIds, (java.lang.Object.class.getClassLoader()));
-//        this.parentId = ((Integer) in.readValue((Integer.class.getClassLoader())));
-//        this.purchaseNote = ((String) in.readValue((String.class.getClassLoader())));
-//        in.readList(this.categories, (com.shije.bookshop.models.Category.class.getClassLoader()));
-//        in.readList(this.tags, (java.lang.Object.class.getClassLoader()));
-        images = in.createTypedArrayList(Image.CREATOR);
-//        in.readList(this.attributes, (java.lang.Object.class.getClassLoader()));
-//        in.readList(this.defaultAttributes, (java.lang.Object.class.getClassLoader()));
-//        in.readList(this.variations, (java.lang.Object.class.getClassLoader()));
-//        in.readList(this.groupedProducts, (java.lang.Object.class.getClassLoader()));
-//        this.menuOrder = ((Integer) in.readValue((Integer.class.getClassLoader())));
-    }
-
-    public Book() {
-    }
+    };
 
     public Integer getId() {
         return id;
@@ -645,62 +754,8 @@ public class Book implements Parcelable {
         this.menuOrder = menuOrder;
     }
 
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeValue(id);
-        dest.writeValue(name);
-        dest.writeValue(featured);
-        dest.writeValue(catalogVisibility);
-        dest.writeValue(description);
-        dest.writeValue(shortDescription);
-        dest.writeValue(sku);
-        dest.writeValue(price);
-        dest.writeValue(regularPrice);
-        dest.writeValue(salePrice);
-        dest.writeValue(dateOnSaleFrom);
-        dest.writeValue(dateOnSaleFromGmt);
-        dest.writeValue(dateOnSaleTo);
-        dest.writeValue(dateOnSaleToGmt);
-        dest.writeValue(onSale);
-        dest.writeValue(purchasable);
-        dest.writeValue(virtual);
-        dest.writeValue(downloadable);
-        dest.writeList(downloads);
-        dest.writeValue(downloadLimit);
-        dest.writeValue(downloadExpiry);
-        dest.writeValue(externalUrl);
-        dest.writeValue(buttonText);
-        dest.writeValue(taxStatus);
-        dest.writeValue(taxClass);
-        dest.writeValue(stockQuantity);
-        dest.writeValue(stockStatus);
-        dest.writeValue(backorders);
-        dest.writeValue(backordersAllowed);
-        dest.writeValue(backordered);
-        dest.writeValue(soldIndividually);
-        dest.writeValue(weight);
-        dest.writeValue(shippingRequired);
-        dest.writeValue(shippingTaxable);
-        dest.writeValue(shippingClass);
-        dest.writeValue(shippingClassId);
-        dest.writeValue(reviewsAllowed);
-        dest.writeValue(averageRating);
-        dest.writeValue(ratingCount);
-        dest.writeList(relatedIds);
-        dest.writeList(upsellIds);
-        dest.writeValue(parentId);
-        dest.writeValue(purchaseNote);
-        dest.writeList(categories);
-        dest.writeList(tags);
-        dest.writeList(images);
-        dest.writeList(attributes);
-        dest.writeList(defaultAttributes);
-        dest.writeList(variations);
-        dest.writeList(groupedProducts);
-        dest.writeValue(menuOrder);
-    }
-
-    public int describeContents() {
-        return 0;
-    }
+    @SerializedName("menu_order")
+    @Expose
+    private Integer menuOrder;
 
 }

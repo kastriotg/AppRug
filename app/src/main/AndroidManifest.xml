@@ -33,7 +33,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name="com.shije.bookshop.BookDetailActivity" />
+        <activity android:name="com.shije.bookshop.BookDetailActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
