@@ -30,18 +30,24 @@ public class BookDetailActivity extends AppCompatActivity {
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_detail);
-        initCollapsingToolbar();
+//        initCollapsingToolbar();
         ImageView image;
 
         Bundle b = getIntent().getExtras();
         if (b != null) {
 
             book = b.getParcelable(EXTRA_PRODUCT);
-            ImageView single_book = findViewById(R.id.app_bar_image);
+            ImageView single_book = findViewById(R.id.bookphoto);
             Glide.with(this).load(book.getImages().get(0).getSrc()).into(single_book);
 
             TextView name = findViewById(R.id.single_book_name);
             name.setText(book.getName());
+
+            TextView price = findViewById(R.id.cmimi);
+            price.setText(book.getPrice());
+
+            TextView shortDescription = findViewById(R.id.app_pershkrimi);
+            shortDescription.setText(book.getShortDescription());
 
         }
 
@@ -49,32 +55,6 @@ public class BookDetailActivity extends AppCompatActivity {
 
 
     }
-    private void initCollapsingToolbar() {
-        final CollapsingToolbarLayout collapsingToolbar =
-                (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        collapsingToolbar.setTitle(" ");
-        AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
-        appBarLayout.setExpanded(true);
 
-        // hiding & showing the title when toolbar expanded & collapsed
-        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-            boolean isShow = false;
-            int scrollRange = -1;
-
-            @Override
-            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                if (scrollRange == -1) {
-                    scrollRange = appBarLayout.getTotalScrollRange();
-                }
-                if (scrollRange + verticalOffset == 0) {
-                    collapsingToolbar.setTitle(book.getName());
-                    isShow = true;
-                } else if (isShow) {
-                    collapsingToolbar.setTitle(book.getName());
-                    isShow = false;
-                }
-            }
-        });
-    }
 
 }
