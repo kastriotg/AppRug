@@ -1,15 +1,17 @@
-package com.shije.shije;
+package com.shije.bookshop;
 
-import com.shije.shije.models.Book;
+import com.shije.bookshop.models.Book;
 
 import java.util.List;
 
 import retrofit2.Call;
+
 import retrofit2.http.GET;
+
 
 public interface BooksService {
 
-    @GET("posts")
+    @GET("products")
     Call<List<Book>> getBooks();
 
 }

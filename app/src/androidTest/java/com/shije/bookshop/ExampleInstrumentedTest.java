@@ -1,4 +1,4 @@
-package com.shije.shije;
+package com.shije.bookshop;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

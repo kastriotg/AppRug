@@ -1,4 +1,4 @@
-package com.shije.shije;
+package com.shije.bookshop;
 
 import org.junit.Test;
 

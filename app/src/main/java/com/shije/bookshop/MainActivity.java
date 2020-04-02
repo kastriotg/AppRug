@@ -1,4 +1,4 @@
-package com.shije.shije;
+package com.shije.bookshop;
 
 import android.content.res.Resources;
 import android.graphics.Rect;
@@ -24,7 +24,8 @@ import android.view.Menu;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.shije.shije.models.Book;
+import com.shije.bookshop.models.Book;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,6 +64,11 @@ public class MainActivity extends AppCompatActivity
         productList.setItemAnimator(new DefaultItemAnimator());
         productList.setAdapter(recyclerAdapter);
 
+        OAuthInterceptor oauth1Woocommerce = new OAuthInterceptor.Builder()
+                .consumerKey("ck_8e76417698a2266b9900c4d9c80ae6925a27836d")
+                .consumerSecret("cs_78e9b295a4dca51077c172bde08157eca782116f")
+                .build();
+
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.setLenient();
         Gson gson = gsonBuilder.create();
@@ -71,15 +77,18 @@ public class MainActivity extends AppCompatActivity
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder()
                 .addInterceptor(logging)
+                .addInterceptor(oauth1Woocommerce)
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()
                 .client(client)
-                .baseUrl("http://blejtani.site/wp-json/wp/v2/")
+                .baseUrl("https://blejtani.site/wp-json/wc/v3/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         BooksService booksService = retrofit.create(BooksService.class);
+
+
 
         Call<List<Book>> call = booksService.getBooks();
 
@@ -105,6 +114,7 @@ public class MainActivity extends AppCompatActivity
                 Log.d("Error", t.getMessage());
                 Log.e("body", t.toString());
             }
+
 
         });
 

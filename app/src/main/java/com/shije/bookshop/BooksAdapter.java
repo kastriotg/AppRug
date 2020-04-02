@@ -1,4 +1,4 @@
-package com.shije.shije;
+package com.shije.bookshop;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,7 +14,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.shije.shije.models.Book;
+import com.shije.bookshop.models.Book;
+import com.shije.bookshop.models.Image;
 
 import java.util.List;
 
@@ -29,6 +30,7 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.ProductViewH
         this.productList = productList;
     }
 
+
     @NonNull
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -39,10 +41,11 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.ProductViewH
     @Override
     public void onBindViewHolder(@NonNull final ProductViewHolder viewHolder, final int position) {
         Book product = productList.get(position);
-        viewHolder.productTitle.setText(product.getTitle().getRendered());
-        Glide.with(context).load(product.getFimgUrl()).into(viewHolder.productImage);
+        viewHolder.productTitle.setText(product.getName());
 
-//        viewHolder.productImage.setText(product.getImage());
+        Glide.with(context).load(product.getImages().get(0).getSrc()).into(viewHolder.productImage);
+
+//        viewHolder.productImage.(product.getImage());
 //       viewHolder.productPrice.setText(product.getCustomFields().getCmimi().get(0));
 //        viewHolder.productInventory.setText(product.getInventory());
 //        viewHolder.productDescription.setText(product.getContent().toString());
@@ -71,9 +74,7 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.ProductViewH
             super(itemView);
             productTitle = itemView.findViewById(R.id.productLayoutName);
             productImage = itemView.findViewById(R.id.bookThumbnail);
-//            productPrice =itemView.findViewById(R.id.productLayoutCmimi);
-//            productInventory = itemView.findViewById(R.id.productLayoutInventory);
-//            productDescription = itemView.findViewById(R.id.productLayoutDescription);
+
             cardView = itemView.findViewById(R.id.card_view);
         }
     }

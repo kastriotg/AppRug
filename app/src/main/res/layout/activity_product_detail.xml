@@ -30,17 +30,5 @@
             android:layout_height="wrap_content"
             android:text="@string/shtepia_botuese" />
 
-        <android.support.v4.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/description"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="8dp"
-                    android:text="@string/textview" />
-        </android.support.v4.widget.NestedScrollView>
-
 
 </LinearLayout>
